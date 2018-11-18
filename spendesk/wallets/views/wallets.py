@@ -121,7 +121,7 @@ class WalletTransferView(GenericAPIView, TransferBase):
         return wallet
 
 
-class WalletDebugView(UpdateAPIView):
+class WalletDebugView(UpdateAPIView):  # pragma: no cover
 
     queryset = Wallet.objects.all()
     serializer_class = WalletSerializer

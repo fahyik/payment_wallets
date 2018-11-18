@@ -1,4 +1,5 @@
 import pytest
+import mock
 import uuid
 
 from ...models import Currencies, Card, Entity, Transfer, Wallet
@@ -6,6 +7,21 @@ from ...models import Currencies, Card, Entity, Transfer, Wallet
 
 COMPANY_ID = str(uuid.uuid4())
 USER_ID = str(uuid.uuid4())
+
+MOCK_FIXER_RESPONSE = mock.Mock(
+    ok=True,
+    json=mock.Mock(return_value={
+        "success": True,
+        "timestamp": 1542551947,
+        "base": "EUR",
+        "date": "2018-11-18",
+        "rates": {
+            "USD": 2,
+            "GBP": 0.5,
+            "EUR": 1
+        }
+    })
+)
 
 
 @pytest.fixture
@@ -51,7 +67,11 @@ def create_master_wallets():
     def _create_master_wallets():
         return Wallet.objects.bulk_create(
             [
-                Wallet(currency=c.name, company_id=uuid.UUID("00000000-0000-0000-0000-000000000000")) 
+                Wallet(
+                    currency=c.name,
+                    company_id=uuid.UUID("00000000-0000-0000-0000-000000000000"),
+                    is_master=True
+                )
                 for c in Currencies
             ]
         )

@@ -64,7 +64,9 @@ class TransferBase():
             target=target
         )
 
-        transfer = self.update_transfer_with_conversion(transfer)
+        if transfer.origin_currency != transfer.target_currency:
+            # only do conversion if currency is different
+            transfer = self.update_transfer_with_conversion(transfer)
 
         self.update_origin_balance(transfer, origin)
         self.update_target_balance(transfer, target)
