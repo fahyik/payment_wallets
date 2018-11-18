@@ -1,0 +1,32 @@
+version: '3'
+
+volumes:
+  production_postgres_data: {}
+  production_postgres_data_backups: {}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/production/django/Dockerfile
+    image: spendesk_production_django
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
+    command: /start
+    ports:
+      - "5000:5000"
+
+  postgres:
+    image: postgres:10.6
+    volumes:
+      - production_postgres_data:/var/lib/postgresql/data
+      - production_postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.production/.postgres
+
+  redis:
+    image: redis:3.2

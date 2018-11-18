@@ -1,0 +1,525 @@
+{
+	"info": {
+		"_postman_id": "ad96a01c-3cdb-4e6e-bc05-e1d075d95634",
+		"name": "Spendesk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Wallets",
+			"item": [
+				{
+					"name": "GET Master Wallets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "00000000-0000-0000-0000-000000000001",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "00000000-0000-0000-0000-000000000000",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "00000000-0000-0000-0000-000000000000"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v1/wallets/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"wallets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Specific Wallet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v1/wallets/{{wallet_id}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"wallets",
+								"{{wallet_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET List Wallets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v1/wallets/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"wallets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST New Wallet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currency\": \"EUR\",\n\t\"company_id\": \"bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/wallets/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"wallets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Wallet Transfer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"origin_wallet_id\": \"02f0c9d9-7453-4e7d-88fa-a9096265e6c4\",\n\t\"target_wallet_id\": \"a3992b43-63df-4a82-8bab-2ed4325daf0c\",\n\t\"amount\": 10\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/wallets/transfer/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"wallets",
+								"transfer",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEBUG Add Credit Wallet",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v1/wallets/{{wallet_id}}/credit/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"wallets",
+								"{{wallet_id}}",
+								"credit",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cards",
+			"item": [
+				{
+					"name": "GET List Cards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v1/cards/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cards",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Specific Card",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v1/cards/{{card_id}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cards",
+								"{{card_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST New Card",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"wallet_id\": \"4fb05f8c-64b6-48a9-bb25-cddb908800d2\",\n\t\"user_id\": \"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/cards/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cards",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Block Card",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v1/cards/{{card_id}}/block/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cards",
+								"{{card_id}}",
+								"block",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Unblock Card",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v1/cards/{{card_id}}/unblock/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cards",
+								"{{card_id}}",
+								"unblock",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Load/Unload Card",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Id",
+								"value": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+								"type": "text"
+							},
+							{
+								"key": "Company-Id",
+								"name": "Content-Type",
+								"value": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"card_id\": \"4fb05f8c-64b6-48a9-bb25-cddb908800d2\",\n\t\"amount\": 10\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/cards/load/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cards",
+								"load",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "ee5b4101-eb79-4c85-9eaa-18912bc031cb",
+			"key": "host",
+			"value": "0.0.0.0:5000",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+python /app/manage.py collectstatic --noinput
+python /app/manage.py migrate --noinput
+python /app/manage.py seed_master_wallets
+/usr/local/bin/gunicorn config.wsgi --bind 0.0.0.0:5000 --chdir=/app
