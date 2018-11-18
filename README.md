@@ -26,14 +26,15 @@ you will have set up postgres on your machine, with the db settings as per
 > ./manage.py runserver 0.0.0.0:5000
 ```
 
-You should then be able to access the API on http://0.0.0.0:5000/v1/wallets/docs/
+You should then be able to access the API on http://0.0.0.0:5000/v1/docs/
 
 
 ## Testing
 
 ### with docker-compose (recommended)
 ```bash
-> docker-compose -f local.yml run django pytest -v --cov
+> find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf  # get rid of nasty pycache files
+> docker-compose -f local.yml run django pytest
 ```
 
 # Notes on API
