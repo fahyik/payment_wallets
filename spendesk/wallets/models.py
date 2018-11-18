@@ -58,10 +58,9 @@ class Wallet(Entity):
     is_master = models.BooleanField(default=False)
 
     class Meta:
-        # assumes only one master wallet per currency
-        unique_together = (
-            ('currency', 'is_master'),
-        )
+        indexes = [
+            models.Index(fields=['currency', 'is_master']),
+        ]
 
 
 class Card(Entity):
